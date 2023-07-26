@@ -1,46 +1,44 @@
-import { useState } from 'react';
-import Header from './components/Header';
+// App.js
+
+import React from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
 import SideBar from './components/SideBar';
-import MainContent from './components/MainContent'
+import NarutoRating from './components/NarutoRating';
+import yourImageSource from './imgs/animeseries.png'; // Replace with your image source
+import './App.css';
 
 function App() {
-    //arrays
-    const [animeCatalog, SetAnimeCatalog] = useState([]); // this will hold main anime when we search for it 
-    const [FavoriteAnime] = useState([]); // my favorite Anime
-    const [search, SetSearch] = useState(""); // search
+  return (
+    <div className="App">
+      <div className="content-wrap">
+        <SideBar />
 
-    const HandleSearch = e => {
-        e.preventDefault();
+        <main>
+          <div className="main-head">
+            <h1>Anime/Manga Rating App</h1>
+            <p>
+              Hello Anime and Manga fans, welcome to this wonderful website, where you can have fun ranking your favorite
+              arcs and favorite fights from any of these series. You have to click any of these buttons to go to the page
+              and play around with.
+            </p>
+            <div className="search-box">
+              <Link to="/naruto" className="button">
+                Naruto Rating
+              </Link>
+            </div>
+          </div>
 
-        FetchAnime(search);
-    }
+          <Routes>
+            <Route path="/naruto" element={<NarutoRating />} />
+          </Routes>
+        </main>
+      </div>
 
-    const FetchAnime = async(query) => {
-        const temp = await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=10`)
-            .then(res => res.json());
-
-        console.log(temp.results);
-
-
-        SetAnimeCatalog(temp.results);
-    }
-
-    return ( <
-        div className = "App" >
-        <
-        Header / >
-        <
-        div className = "content-wrap" >
-        <
-        SideBar FavoriteAnime = { FavoriteAnime }
-        /> <
-        MainContent HandleSearch = { HandleSearch }
-        search = { search }
-        SetSearch = { SetSearch }
-        animeCatalog = { animeCatalog }
-        / > < /div > <
-        /div>
-    );
+      <div className="image-container">
+        <img src={yourImageSource} alt="Your Image" />
+      </div>
+    </div>
+  );
 }
 
 export default App;

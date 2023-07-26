@@ -1,0 +1,88 @@
+/* App.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f3;
+}
+
+.App {
+  display: flex;
+}
+
+.content-wrap {
+  flex: 1;
+  padding: 20px;
+  margin: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.main-head h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.main-head p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.search-box {
+  margin-top: 40px;
+}
+
+/* Add margin between the favorite anime links */
+.button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Style the button for the your rankings page */
+.your-rankings-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  margin: 40px auto;
+}
+
+.your-rankings-button:hover {
+  background-color: #0056b3;
+}
+
+.image-container {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ... (existing CSS rules) */

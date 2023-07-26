@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/scss/main.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Routes
+import NarutoRating from './components/NarutoRating'; // Updated import for NarutoRating
+
 import App from './App';
 
-
-ReactDOM.render( <
-    React.StrictMode >
-    <
-    App / >
-    <
-    /React.StrictMode>,
-    document.getElementById('root')
+ReactDOM.render(
+  <Router>
+    <Routes>
+      <Route exact path="/" element={<App />} /> {/* Use element prop for the component */}
+      <Route path="/naruto" element={<NarutoRating />} /> {/* Updated route */}
+    </Routes>
+  </Router>,
+  document.getElementById('root')
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
