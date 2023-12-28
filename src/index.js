@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NarutoRating from './components/NarutoRating';
+import BleachRating from './components/BleachRating';
 import App from './App';
 
 // Get the root element
@@ -20,6 +21,7 @@ rootElement.render(
 
         {/* Specify a relative path for the NarutoRating route */}
         <Route path="naruto" element={<NarutoRating />} />
+        <Route path="bleach" element={<BleachRating />} />
       </Route>
     </Routes>
   </Router>
