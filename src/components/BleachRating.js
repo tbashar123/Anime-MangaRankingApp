@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import '../css/NarutoRating.css';
-import landOfWavesImage from '../imgs/landofwaves.jpg'; 
-import chuninExamsImage from '../imgs/chuninexams.jpg';
-import konohaCrushImage from '../imgs/konoha crush.png';
-import searchForTsunadeImage from '../imgs/search for tsunade.png';
-import sasukeRetrievalImage from '../imgs/sasukeretrievalarc.jpg';
+import '../css/BleachRating.css'; // Make sure to create or import your BleachRating.css file
+import agentImage from '../bleachimgs/agentofshinigami.png'; 
+import soulSocietyImage from '../bleachimgs/soulsociety.jpg';
+import arrancarImage from '../bleachimgs/Arrancar.jpg';
+import fullBringImage from '../bleachimgs/fullbring.jpg';
+import thousandYearBloodWarImage from '../bleachimgs/thousandyearbloodwar.jpg';
 
-
-const NarutoRating = () => {
+const BleachRating = () => {
   const [sortedRankings, setSortedRankings] = useState([
-    { id: 'arc1', name: 'Land of Waves', image: landOfWavesImage },
-    {id: 'arc2', name: 'Chunin Exams', image: chuninExamsImage },
-    { id: 'arc3', name: 'Konoha Crush', image: konohaCrushImage },
-    { id: 'arc4', name: 'Search for Tsunade', image: searchForTsunadeImage },
-    { id: 'arc5', name: 'Sasuke Retrieval', image: sasukeRetrievalImage },
+    { id: 'arc1', name: 'Agent of Shinigami', image: agentImage },
+    { id: 'arc2', name: 'Soul Society', image: soulSocietyImage },
+    { id: 'arc3', name: 'Arrancar', image: arrancarImage },
+    { id: 'arc4', name: 'Fullbring', image: fullBringImage },
+    { id: 'arc5', name: 'Thousand Year Blood War', image: thousandYearBloodWarImage },
     // Add more arcs here...
   ]);
   const [submitting, setSubmitting] = useState(false);
@@ -25,11 +24,10 @@ const NarutoRating = () => {
   const submitArcRankings = async () => {
     try {
       setSubmitting(true);
-      const response = await axios.post('/api/arcs/naruto', {
+      const response = await axios.post('/api/arcs/bleach', {
         rankings: sortedRankings,
       });
   
-      console.log('after');
       console.log(response.data.message); // Arc rankings submitted successfully
       setSubmitting(false);
       setError(null);
@@ -104,7 +102,7 @@ const NarutoRating = () => {
     <div>
       {!submitted ? (
         <>
-          <h2>Naruto Arc Rankings</h2>
+          <h2>Bleach Arc Rankings</h2>
           <p>
             Drag and drop the arc names to rank them in your desired order. Click the "Submit Arc Rankings" button below to save
             your rankings.
@@ -121,22 +119,22 @@ const NarutoRating = () => {
           </DragDropContext>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <button
-  disabled={submitting}
-  onClick={submitArcRankings}
-  style={{
-    width: '200px', // Set the width to make the button bigger
-    height: '50px', // Set the height to make the button bigger
-    fontSize: '20px',
-    fontWeight: 'bold',
-    color: '#fff',
-    backgroundColor: '#007bff',
-    border: 'none',
-    borderRadius: '8px',
-    cursor: 'pointer',
-  }}
->
-  Submit Arc Rankings
-</button>
+            disabled={submitting}
+            onClick={submitArcRankings}
+            style={{
+              width: '200px', // Set the width to make the button bigger
+              height: '50px', // Set the height to make the button bigger
+              fontSize: '20px',
+              fontWeight: 'bold',
+              color: '#fff',
+              backgroundColor: '#007bff',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+            }}
+          >
+            Submit Arc Rankings
+          </button>
         </>
       ) : (
         <>
@@ -146,12 +144,10 @@ const NarutoRating = () => {
               <li key={arc.id}>{arc.name}</li>
             ))}
           </ol>
-       
-
         </>
       )}
     </div>
   );
 };
 
-export default NarutoRating;
+export default BleachRating;

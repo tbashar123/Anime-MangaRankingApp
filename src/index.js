@@ -1,18 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Routes
-import NarutoRating from './components/NarutoRating'; // Updated import for NarutoRating
-
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NarutoRating from './components/NarutoRating';
 import App from './App';
 
-ReactDOM.render(
+// Get the root element
+const root = document.getElementById('root');
+
+// Use createRoot to render your app
+const rootElement = createRoot(root);
+
+rootElement.render(
   <Router>
     <Routes>
-      <Route exact path="/" element={<App />} /> {/* Use element prop for the component */}
-      <Route path="/naruto" element={<NarutoRating />} /> {/* Updated route */}
+      {/* Change the parent Route path to have a trailing "*" */}
+      <Route path="*">
+        {/* Use the index route without a specific path */}
+        <Route index element={<App />} />
+
+        {/* Specify a relative path for the NarutoRating route */}
+        <Route path="naruto" element={<NarutoRating />} />
+      </Route>
     </Routes>
-  </Router>,
-  document.getElementById('root')
+  </Router>
 );
 
 

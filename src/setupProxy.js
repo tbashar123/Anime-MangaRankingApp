@@ -1,4 +1,3 @@
-// src/setupProxy.js
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
@@ -7,6 +6,7 @@ module.exports = function (app) {
     createProxyMiddleware({
       target: 'http://localhost:3000',
       changeOrigin: true,
+      timeout: 60000, // Set timeout to 60 seconds (adjust as needed)
     })
   );
 };
