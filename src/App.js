@@ -4,8 +4,9 @@ import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import SideBar from './components/SideBar';
 import NarutoRating from './components/NarutoRating';
-import BleachRating from './components/BleachRating';  // Import BleachRating component
-import yourImageSource from './imgs/animeseries.png'; // Replace with your image source
+import BleachRating from './components/BleachRating';
+import DBZRating from './components/DBZRating'; // Import DBZRating component
+import yourImageSource from './imgs/animeseries.png';
 import './App.css';
 
 function App() {
@@ -26,15 +27,19 @@ function App() {
               <Link to="/naruto" className="button">
                 Naruto Rating
               </Link>
-              <Link to="/bleach" className="button">  {/* Add link to Bleach Rating */}
+              <Link to="/bleach" className="button">
                 Bleach Rating
+              </Link>
+              <Link to="/dbz" className="button"> {/* Add link to DBZ Rating */}
+                DBZ Rating
               </Link>
             </div>
           </div>
 
           <Routes>
             <Route path="/naruto" element={<NarutoRating />} />
-            <Route path="/bleach" element={<BleachRating />} />  {/* Add route for Bleach Rating */}
+            <Route path="/bleach" element={<BleachRating />} />
+            <Route path="/dbz" element={<DBZRating />} /> {/* Add route for DBZ Rating */}
           </Routes>
         </main>
       </div>

@@ -1,17 +1,16 @@
+// server.js
+
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 const cors = require('cors');
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());  // Enable CORS for all routes
+app.use(cors());
 
-// Connect to MongoDB using the MONGODB_URI from .env
 const connectToMongoDB = () => {
   mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -29,7 +28,6 @@ db.on('disconnected', () => {
   connectToMongoDB();
 });
 
-// Create the Arc schema and model
 const arcSchema = new mongoose.Schema({
   animeId: { type: String, required: true },
   arcName: { type: String, required: true },
@@ -38,32 +36,67 @@ const arcSchema = new mongoose.Schema({
 
 const Arc = mongoose.model('Arc', arcSchema);
 
-// Define secret key for JWT
-const JWT_SECRET = process.env.JWT_SECRET;
-
-// Start the server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-// Endpoint for submitting new arc rankings
 app.post('/api/arcs/naruto', async (req, res) => {
   try {
     const { rankings } = req.body;
 
-    // Process the rankings and save them to the database
-    rankings.forEach(async (arcName, index) => {
+    rankings.forEach(async (arc, index) => {
       try {
-        const newArc = new Arc({ animeId: 'naruto', arcName, rating: index + 1 });
+        const newArc = new Arc({ animeId: 'naruto', arcName: arc.name, rating: index + 1 });
         await newArc.save();
       } catch (error) {
         console.error(error);
       }
     });
 
-    res.status(201).json({ message: 'Arc rankings submitted successfully' });
+    res.status(201).json({ message: 'Naruto arc rankings submitted successfully' });
   } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+app.post('/api/arcs/bleach', async (req, res) => {
+  try {
+    const { rankings } = req.body;
+
+    rankings.forEach(async (arc, index) => {
+      try {
+        const newArc = new Arc({ animeId: 'bleach', arcName: arc.name, rating: index + 1 });
+        await newArc.save();
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    res.status(201).json({ message: 'Bleach arc rankings submitted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+app.post('/api/arcs/dbz', async (req, res) => {
+  try {
+    const { rankings } = req.body;
+
+    rankings.forEach(async (arc, index) => {
+      try {
+        const newArc = new Arc({ animeId: 'dbz', arcName: arc.name, rating: index + 1 });
+        await newArc.save();
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    res.status(201).json({ message: 'DBZ arc rankings submitted successfully' });
+  } catch (error) {
+    console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
