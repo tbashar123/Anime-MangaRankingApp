@@ -5,7 +5,8 @@ import { Link, Route, Routes } from 'react-router-dom';
 import SideBar from './components/SideBar';
 import NarutoRating from './components/NarutoRating';
 import BleachRating from './components/BleachRating';
-import DBZRating from './components/DBZRating'; // Import DBZRating component
+import DBZRating from './components/DBZRating';
+import HxHRating from './components/HxHRating'; // Import HxHRating component
 import yourImageSource from './imgs/animeseries.png';
 import './App.css';
 
@@ -30,8 +31,11 @@ function App() {
               <Link to="/bleach" className="button">
                 Bleach Rating
               </Link>
-              <Link to="/dbz" className="button"> {/* Add link to DBZ Rating */}
+              <Link to="/dbz" className="button">
                 DBZ Rating
+              </Link>
+              <Link to="/hxh" className="button"> {/* Add link to HxH Rating */}
+                HxH Rating
               </Link>
             </div>
           </div>
@@ -39,7 +43,8 @@ function App() {
           <Routes>
             <Route path="/naruto" element={<NarutoRating />} />
             <Route path="/bleach" element={<BleachRating />} />
-            <Route path="/dbz" element={<DBZRating />} /> {/* Add route for DBZ Rating */}
+            <Route path="/dbz" element={<DBZRating />} />
+            <Route path="/hxh" element={<HxHRating />} /> {/* Add route for HxH Rating */}
           </Routes>
         </main>
       </div>

@@ -5,7 +5,8 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NarutoRating from './components/NarutoRating';
 import BleachRating from './components/BleachRating';
-import DBZRating from './components/DBZRating'; // Import DBZRating component
+import DBZRating from './components/DBZRating';
+import HxHRating from './components/HxHRating'; // Import HxHRating component
 import App from './App';
 
 const root = document.getElementById('root');
@@ -18,7 +19,8 @@ rootElement.render(
         <Route index element={<App />} />
         <Route path="naruto" element={<NarutoRating />} />
         <Route path="bleach" element={<BleachRating />} />
-        <Route path="dbz" element={<DBZRating />} /> {/* Add route for DBZ Rating */}
+        <Route path="dbz" element={<DBZRating />} />
+        <Route path="hxh" element={<HxHRating />} /> {/* Add route for HxH Rating */}
       </Route>
     </Routes>
   </Router>
