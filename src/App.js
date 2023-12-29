@@ -1,12 +1,12 @@
 // App.js
-
 import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import SideBar from './components/SideBar';
 import NarutoRating from './components/NarutoRating';
 import BleachRating from './components/BleachRating';
 import DBZRating from './components/DBZRating';
-import HxHRating from './components/HxHRating'; // Import HxHRating component
+import HxHRating from './components/HxHRating';
+import OnePieceRating from './components/OnePieceRating'; // Import OnePieceRating component
 import yourImageSource from './imgs/animeseries.png';
 import './App.css';
 
@@ -34,8 +34,11 @@ function App() {
               <Link to="/dbz" className="button">
                 DBZ Rating
               </Link>
-              <Link to="/hxh" className="button"> {/* Add link to HxH Rating */}
+              <Link to="/hxh" className="button">
                 HxH Rating
+              </Link>
+              <Link to="/onepiece" className="button"> {/* Add link to OnePiece Rating */}
+                One Piece Rating
               </Link>
             </div>
           </div>
@@ -44,7 +47,8 @@ function App() {
             <Route path="/naruto" element={<NarutoRating />} />
             <Route path="/bleach" element={<BleachRating />} />
             <Route path="/dbz" element={<DBZRating />} />
-            <Route path="/hxh" element={<HxHRating />} /> {/* Add route for HxH Rating */}
+            <Route path="/hxh" element={<HxHRating />} />
+            <Route path="/onepiece" element={<OnePieceRating />} /> {/* Add route for OnePiece Rating */}
           </Routes>
         </main>
       </div>

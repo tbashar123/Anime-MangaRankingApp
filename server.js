@@ -120,3 +120,26 @@ app.post('/api/arcs/hxh', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+// server.js
+// ... (existing code)
+
+app.post('/api/arcs/onepiece', async (req, res) => {
+  try {
+    const { rankings } = req.body;
+
+    rankings.forEach(async (arc, index) => {
+      try {
+        const newArc = new Arc({ animeId: 'onepiece', arcName: arc.name, rating: index + 1 });
+        await newArc.save();
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    res.status(201).json({ message: 'One Piece arc rankings submitted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
