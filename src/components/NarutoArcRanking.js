@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import '../css/NarutoRating.css';
+import '../css/NarutoArcRanking.css';
 import landOfWavesImage from '../narutoimgs/landofwaves.jpg'; 
 import chuninExamsImage from '../narutoimgs/chuninexams.jpg';
 import searchForTsunadeImage from '../narutoimgs/search for tsunade.png';
@@ -17,7 +17,7 @@ import fiveKageSummit from '../narutoimgs/fivekagesummit.avif';
 import fourthGreatNinjaWar from '../narutoimgs/fourthgreatninjawar.webp';
 
 
-const NarutoRating = () => {
+const NarutoArcRanking = () => {
   const [sortedRankings, setSortedRankings] = useState([
     { id: 'arc1', name: 'Land of Waves', image: landOfWavesImage },
     {id: 'arc2', name: 'Chunin Exams', image: chuninExamsImage },
@@ -32,7 +32,7 @@ const NarutoRating = () => {
     { id: 'arc11', name: 'Invasion of Pain', image: invasionOfPain },
     { id: 'arc12', name: 'Five Kage Summit', image: fiveKageSummit },
     { id: 'arc13', name: 'Entire Fourth Great Ninja War', image: fourthGreatNinjaWar },
-    // Add more arcs here...
+    
   ]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -170,4 +170,4 @@ const NarutoRating = () => {
   );
 };
 
-export default NarutoRating;
+export default NarutoArcRanking;

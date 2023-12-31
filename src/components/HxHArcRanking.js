@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import '../css/DBSeriesRating.css';
-import sonGoku from '../dbseriesimgs/songoku.jpg'; 
-import redRibbonArmy from '../dbseriesimgs/redribbonarmy.webp'; 
-import kingPiccolo from '../dbseriesimgs/kingpiccolo.webp'; 
-import saiyanImage from '../dbseriesimgs/saiyansaga.jpg'; 
-import freizaImage from '../dbseriesimgs/freizasaga.jpg';
-import androidImage from '../dbseriesimgs/androidsaga.png';
-import buuImage from '../dbseriesimgs/buusaga.png';
+import '../css/HxHArcRanking.css';
+import hunterExam from '../hxhimgs/hunterexam.jpg'; 
+import zoldyckFamily from '../hxhimgs/zoldyckfamily.webp';
+import heavensArena from '../hxhimgs/heavensarena.webp';
+import yorkNewCity from '../hxhimgs/yorknewcity.png';
+import greedIsland from '../hxhimgs/greedisland.jpg';
+import chimeraAnt from '../hxhimgs/chimeraant.jpg';
+import election from '../hxhimgs/13thelection.jpg';
+import darkContinentExpedition from '../hxhimgs/darkcontinentexpedition.webp';
 
 
-const DBSeriesRating = () => {
+
+const HxHArcRanking = () => {
   const [sortedRankings, setSortedRankings] = useState([
-    { id: 'arc1', name: 'Son Goku Saga', image: sonGoku },
-    { id: 'arc2', name: 'Red Ribbon Army Saga', image: redRibbonArmy },
-    { id: 'arc3', name: 'King Piccolo Saga', image: kingPiccolo },
-    { id: 'arc4', name: 'Saiyan Saga', image: saiyanImage },
-    {id: 'arc5', name: 'Freiza Saga', image: freizaImage },
-    { id: 'arc6', name: 'Android Saga', image: androidImage },
-    { id: 'arc7', name: 'Buu Saga', image: buuImage },
-    // Add more arcs here...
+    { id: 'arc1', name: 'HunterExam', image: hunterExam },
+    {id: 'arc2', name: 'ZoldyckFamily', image: zoldyckFamily },
+    { id: 'arc3', name: 'HeavensArena', image: heavensArena },
+    { id: 'arc4', name: 'YorkNewCity', image: yorkNewCity },
+    { id: 'arc5', name: 'GreedIsland', image: greedIsland },
+    {id: 'arc6', name: 'ChimeraAnt', image: chimeraAnt },
+    { id: 'arc7', name: '13thElection', image: election },
+    { id: 'arc8', name: 'DarkContinentExpedition', image: darkContinentExpedition },
+    
   ]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -29,7 +32,7 @@ const DBSeriesRating = () => {
   const submitArcRankings = async () => {
     try {
       setSubmitting(true);
-      const response = await axios.post('/api/arcs/naruto', {
+      const response = await axios.post('/api/arcs/hxh', {
         rankings: sortedRankings,
       });
   
@@ -108,9 +111,9 @@ const DBSeriesRating = () => {
     <div>
       {!submitted ? (
         <>
-          <h2>DragonBall Series Arc Rankings</h2>
+          <h2>Hunter X Hunter Arc Rankings</h2>
           <p>
-            Drag and drop the saga names to rank them in your desired order. Click the "Submit Arc Rankings" button below to save
+            Drag and drop the arc names to rank them in your desired order. Click the "Submit Arc Rankings" button below to save
             your rankings.
           </p>
           <DragDropContext onDragEnd={handleDragEnd}>
@@ -158,4 +161,4 @@ const DBSeriesRating = () => {
   );
 };
 
-export default DBSeriesRating;
+export default HxHArcRanking;

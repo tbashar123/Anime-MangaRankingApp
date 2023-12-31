@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import '../css/OnePieceRating.css'; // Update the CSS import path
+import '../css/OnePieceArcRanking.css'; // Update the CSS import path
 import eastBlue from '../onepieceimgs/eastblue.webp'; 
 import alabasta from '../onepieceimgs/alabasta.webp';
 import skyIsland from '../onepieceimgs/skyisland.webp';
@@ -13,7 +13,7 @@ import dressRosa from '../onepieceimgs/dressrosa.webp';
 import wholeCakeIsland from '../onepieceimgs/wholecakeisland.webp';
 import wanoCountry from '../onepieceimgs/wanocountry.webp';
 
-const OnePieceRating = () => {
+const OnePieceArcRanking = () => {
   const [sortedRankings, setSortedRankings] = useState([
     { id: 'arc1', name: 'East Blue Saga', image: eastBlue },
     { id: 'arc2', name: 'Alabasta Saga', image: alabasta },
@@ -25,7 +25,7 @@ const OnePieceRating = () => {
     { id: 'arc8', name: 'DressRosa Saga', image: dressRosa },
     { id: 'arc9', name: 'WholeCakeIsland Saga', image: wholeCakeIsland },
     { id: 'arc10', name: 'WanoCountry Saga', image: wanoCountry },
-    // Add more arcs here...
+    
   ]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -139,4 +139,4 @@ const OnePieceRating = () => {
   );
 };
 
-export default OnePieceRating;
+export default OnePieceArcRanking;

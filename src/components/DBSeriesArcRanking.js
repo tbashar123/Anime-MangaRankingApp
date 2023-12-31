@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import '../css/BleachRating.css'; // Make sure to create or import your BleachRating.css file
-import agentImage from '../bleachimgs/agentofshinigami.png'; 
-import soulSocietyImage from '../bleachimgs/soulsociety.jpg';
-import arrancarImage from '../bleachimgs/Arrancar.jpg';
-import fullBringImage from '../bleachimgs/fullbring.jpg';
-import thousandYearBloodWarImage from '../bleachimgs/thousandyearbloodwar.jpg';
+import '../css/DBSeriesArcRanking.css';
+import sonGoku from '../dbseriesimgs/songoku.jpg'; 
+import redRibbonArmy from '../dbseriesimgs/redribbonarmy.webp'; 
+import kingPiccolo from '../dbseriesimgs/kingpiccolo.webp'; 
+import saiyanImage from '../dbseriesimgs/saiyansaga.jpg'; 
+import freizaImage from '../dbseriesimgs/freizasaga.jpg';
+import androidImage from '../dbseriesimgs/androidsaga.png';
+import buuImage from '../dbseriesimgs/buusaga.png';
 
-const BleachRating = () => {
+
+const DBSeriesArcRanking = () => {
   const [sortedRankings, setSortedRankings] = useState([
-    { id: 'arc1', name: 'Agent of Shinigami', image: agentImage },
-    { id: 'arc2', name: 'Soul Society', image: soulSocietyImage },
-    { id: 'arc3', name: 'Arrancar', image: arrancarImage },
-    { id: 'arc4', name: 'Fullbring', image: fullBringImage },
-    { id: 'arc5', name: 'Thousand Year Blood War', image: thousandYearBloodWarImage },
-    // Add more arcs here...
+    { id: 'arc1', name: 'Son Goku Saga', image: sonGoku },
+    { id: 'arc2', name: 'Red Ribbon Army Saga', image: redRibbonArmy },
+    { id: 'arc3', name: 'Piccolo Saga', image: kingPiccolo },
+    { id: 'arc4', name: 'Saiyan Saga', image: saiyanImage },
+    {id: 'arc5', name: 'Freiza Saga', image: freizaImage },
+    { id: 'arc6', name: 'Android Saga', image: androidImage },
+    { id: 'arc7', name: 'Buu Saga', image: buuImage },
+  
   ]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -24,10 +29,11 @@ const BleachRating = () => {
   const submitArcRankings = async () => {
     try {
       setSubmitting(true);
-      const response = await axios.post('/api/arcs/bleach', {
+      const response = await axios.post('/api/arcs/naruto', {
         rankings: sortedRankings,
       });
   
+      console.log('after');
       console.log(response.data.message); // Arc rankings submitted successfully
       setSubmitting(false);
       setError(null);
@@ -102,9 +108,9 @@ const BleachRating = () => {
     <div>
       {!submitted ? (
         <>
-          <h2>Bleach Arc Rankings</h2>
+          <h2>DragonBall Series Arc Rankings</h2>
           <p>
-            Drag and drop the arc names to rank them in your desired order. Click the "Submit Arc Rankings" button below to save
+            Drag and drop the saga names to rank them in your desired order. Click the "Submit Arc Rankings" button below to save
             your rankings.
           </p>
           <DragDropContext onDragEnd={handleDragEnd}>
@@ -119,22 +125,22 @@ const BleachRating = () => {
           </DragDropContext>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <button
-            disabled={submitting}
-            onClick={submitArcRankings}
-            style={{
-              width: '200px', // Set the width to make the button bigger
-              height: '50px', // Set the height to make the button bigger
-              fontSize: '20px',
-              fontWeight: 'bold',
-              color: '#fff',
-              backgroundColor: '#007bff',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-            }}
-          >
-            Submit Arc Rankings
-          </button>
+  disabled={submitting}
+  onClick={submitArcRankings}
+  style={{
+    width: '200px', // Set the width to make the button bigger
+    height: '50px', // Set the height to make the button bigger
+    fontSize: '20px',
+    fontWeight: 'bold',
+    color: '#fff',
+    backgroundColor: '#007bff',
+    border: 'none',
+    borderRadius: '8px',
+    cursor: 'pointer',
+  }}
+>
+  Submit Arc Rankings
+</button>
         </>
       ) : (
         <>
@@ -144,10 +150,12 @@ const BleachRating = () => {
               <li key={arc.id}>{arc.name}</li>
             ))}
           </ol>
+       
+
         </>
       )}
     </div>
   );
 };
 
-export default BleachRating;
+export default DBSeriesArcRanking;

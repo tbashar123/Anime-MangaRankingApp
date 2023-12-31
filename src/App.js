@@ -2,11 +2,11 @@
 import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import SideBar from './components/SideBar';
-import NarutoRating from './components/NarutoRating';
-import BleachRating from './components/BleachRating';
-import DBSeriesRating from './components/DBSeriesRating';
-import HxHRating from './components/HxHRating';
-import OnePieceRating from './components/OnePieceRating'; // Import OnePieceRating component
+import NarutoArcRanking from './components/NarutoArcRanking';
+import BleachArcRanking from './components/BleachArcRanking';
+import DBSeriesArcRanking from './components/DBSeriesArcRanking';
+import HxHArcRanking from './components/HxHArcRanking';
+import OnePieceArcRanking from './components/OnePieceArcRanking'; // Import OnePieceRating component
 import yourImageSource from './imgs/animeseries.png';
 import './App.css';
 
@@ -18,7 +18,7 @@ function App() {
 
         <main>
           <div className="main-head">
-            <h1>Anime/Manga Rating App</h1>
+            <h1>Anime/Manga Ranking App</h1>
             <p>
               Hello Anime and Manga fans, welcome to this wonderful website, where you can have fun ranking your favorite
               arcs and favorite fights from any of these series. You have to click any of these buttons to go to the page
@@ -26,29 +26,29 @@ function App() {
             </p>
             <div className="search-box">
               <Link to="/naruto" className="button">
-                Naruto Rating
+                Naruto Arc Ranking
               </Link>
               <Link to="/bleach" className="button">
-                Bleach Rating
+                Bleach Arc Ranking
               </Link>
               <Link to="/dbseries" className="button">
-                DBSeries Rating
+                DBSeries Arc Ranking
               </Link>
               <Link to="/hxh" className="button">
-                HxH Rating
+                HxH Arc Ranking
               </Link>
               <Link to="/onepiece" className="button"> {/* Add link to OnePiece Rating */}
-                One Piece Rating
+                One Piece Arc Ranking
               </Link>
             </div>
           </div>
 
           <Routes>
-            <Route path="/naruto" element={<NarutoRating />} />
-            <Route path="/bleach" element={<BleachRating />} />
-            <Route path="/dbseries" element={<DBSeriesRating />} />
-            <Route path="/hxh" element={<HxHRating />} />
-            <Route path="/onepiece" element={<OnePieceRating />} /> {/* Add route for OnePiece Rating */}
+            <Route path="/naruto" element={<NarutoArcRanking />} />
+            <Route path="/bleach" element={<BleachArcRanking />} />
+            <Route path="/dbseries" element={<DBSeriesArcRanking />} />
+            <Route path="/hxh" element={<HxHArcRanking />} />
+            <Route path="/onepiece" element={<OnePieceArcRanking />} /> {/* Add route for OnePiece Rating */}
           </Routes>
         </main>
       </div>

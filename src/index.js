@@ -2,11 +2,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NarutoRating from './components/NarutoRating';
-import BleachRating from './components/BleachRating';
-import DBSeriesRating from './components/DBSeriesRating';
-import HxHRating from './components/HxHRating';
-import OnePieceRating from './components/OnePieceRating'; // Import OnePieceRating component
+import NarutoArcRanking from './components/NarutoArcRanking';
+import BleachArcRanking from './components/BleachArcRanking';
+import DBSeriesArcRanking from './components/DBSeriesArcRanking';
+import HxHArcRanking from './components/HxHArcRanking';
+import OnePieceArcRanking from './components/OnePieceArcRanking'; // Import OnePieceRating component
 import App from './App';
 
 const root = document.getElementById('root');
@@ -17,11 +17,11 @@ rootElement.render(
     <Routes>
       <Route path="*">
         <Route index element={<App />} />
-        <Route path="naruto" element={<NarutoRating />} />
-        <Route path="bleach" element={<BleachRating />} />
-        <Route path="dbseries" element={<DBSeriesRating />} />
-        <Route path="hxh" element={<HxHRating />} />
-        <Route path="onepiece" element={<OnePieceRating />} /> {/* Add route for OnePiece Rating */}
+        <Route path="naruto" element={<NarutoArcRanking />} />
+        <Route path="bleach" element={<BleachArcRanking />} />
+        <Route path="dbseries" element={<DBSeriesArcRanking />} />
+        <Route path="hxh" element={<HxHArcRanking />} />
+        <Route path="onepiece" element={<OnePieceArcRanking />} /> {/* Add route for OnePiece Rating */}
       </Route>
     </Routes>
   </Router>

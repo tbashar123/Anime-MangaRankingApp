@@ -1,29 +1,21 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import '../css/HxHRating.css';
-import hunterExam from '../hxhimgs/hunterexam.jpg'; 
-import zoldyckFamily from '../hxhimgs/zoldyckfamily.webp';
-import heavensArena from '../hxhimgs/heavensarena.webp';
-import yorkNewCity from '../hxhimgs/yorknewcity.png';
-import greedIsland from '../hxhimgs/greedisland.jpg';
-import chimeraAnt from '../hxhimgs/chimeraant.jpg';
-import election from '../hxhimgs/13thelection.jpg';
-import darkContinentExpedition from '../hxhimgs/darkcontinentexpedition.webp';
+import '../css/BleachArcRanking.css'; // Make sure to create or import your BleachRating.css file
+import agentImage from '../bleachimgs/agentofshinigami.png'; 
+import soulSocietyImage from '../bleachimgs/soulsociety.jpg';
+import arrancarImage from '../bleachimgs/Arrancar.jpg';
+import fullBringImage from '../bleachimgs/fullbring.jpg';
+import thousandYearBloodWarImage from '../bleachimgs/thousandyearbloodwar.jpg';
 
-
-
-const HxHRating = () => {
+const BleachArcRanking = () => {
   const [sortedRankings, setSortedRankings] = useState([
-    { id: 'arc1', name: 'HunterExam', image: hunterExam },
-    {id: 'arc2', name: 'ZoldyckFamily', image: zoldyckFamily },
-    { id: 'arc3', name: 'HeavensArena', image: heavensArena },
-    { id: 'arc4', name: 'YorkNewCity', image: yorkNewCity },
-    { id: 'arc5', name: 'GreedIsland', image: greedIsland },
-    {id: 'arc6', name: 'ChimeraAnt', image: chimeraAnt },
-    { id: 'arc7', name: '13thElection', image: election },
-    { id: 'arc8', name: 'DarkContinentExpedition', image: darkContinentExpedition },
-    // Add more arcs here...
+    { id: 'arc1', name: 'Agent of Shinigami', image: agentImage },
+    { id: 'arc2', name: 'Soul Society', image: soulSocietyImage },
+    { id: 'arc3', name: 'Arrancar', image: arrancarImage },
+    { id: 'arc4', name: 'Fullbring', image: fullBringImage },
+    { id: 'arc5', name: 'Thousand Year Blood War', image: thousandYearBloodWarImage },
+    
   ]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -32,11 +24,10 @@ const HxHRating = () => {
   const submitArcRankings = async () => {
     try {
       setSubmitting(true);
-      const response = await axios.post('/api/arcs/hxh', {
+      const response = await axios.post('/api/arcs/bleach', {
         rankings: sortedRankings,
       });
   
-      console.log('after');
       console.log(response.data.message); // Arc rankings submitted successfully
       setSubmitting(false);
       setError(null);
@@ -111,7 +102,7 @@ const HxHRating = () => {
     <div>
       {!submitted ? (
         <>
-          <h2>Hunter X Hunter Arc Rankings</h2>
+          <h2>Bleach Arc Rankings</h2>
           <p>
             Drag and drop the arc names to rank them in your desired order. Click the "Submit Arc Rankings" button below to save
             your rankings.
@@ -128,22 +119,22 @@ const HxHRating = () => {
           </DragDropContext>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <button
-  disabled={submitting}
-  onClick={submitArcRankings}
-  style={{
-    width: '200px', // Set the width to make the button bigger
-    height: '50px', // Set the height to make the button bigger
-    fontSize: '20px',
-    fontWeight: 'bold',
-    color: '#fff',
-    backgroundColor: '#007bff',
-    border: 'none',
-    borderRadius: '8px',
-    cursor: 'pointer',
-  }}
->
-  Submit Arc Rankings
-</button>
+            disabled={submitting}
+            onClick={submitArcRankings}
+            style={{
+              width: '200px', // Set the width to make the button bigger
+              height: '50px', // Set the height to make the button bigger
+              fontSize: '20px',
+              fontWeight: 'bold',
+              color: '#fff',
+              backgroundColor: '#007bff',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+            }}
+          >
+            Submit Arc Rankings
+          </button>
         </>
       ) : (
         <>
@@ -153,12 +144,10 @@ const HxHRating = () => {
               <li key={arc.id}>{arc.name}</li>
             ))}
           </ol>
-       
-
         </>
       )}
     </div>
   );
 };
 
-export default HxHRating;
+export default BleachArcRanking;
