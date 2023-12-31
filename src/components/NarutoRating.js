@@ -2,20 +2,36 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import '../css/NarutoRating.css';
-import landOfWavesImage from '../imgs/landofwaves.jpg'; 
-import chuninExamsImage from '../imgs/chuninexams.jpg';
-import konohaCrushImage from '../imgs/konoha crush.png';
-import searchForTsunadeImage from '../imgs/search for tsunade.png';
-import sasukeRetrievalImage from '../imgs/sasukeretrievalarc.jpg';
+import landOfWavesImage from '../narutoimgs/landofwaves.jpg'; 
+import chuninExamsImage from '../narutoimgs/chuninexams.jpg';
+import searchForTsunadeImage from '../narutoimgs/search for tsunade.png';
+import sasukeRetrievalImage from '../narutoimgs/sasukeretrievalarc.jpg';
+import kazekageRescue from '../narutoimgs/kazekagerescue.jpg';
+import tenchiBridge from '../narutoimgs/tenchibridge.jpg';
+import hidanAndKakuzu from '../narutoimgs/hidanandkakuzu.jpg';
+import itachiPursuit from '../narutoimgs/itachipursuit.jpg';
+import taleOfJiraiyaTheGallant from '../narutoimgs/taleofjiraiyathegallant.jpg';
+import fatedBattleBetweenBrothers from '../narutoimgs/fatedbattlebetweenbrothers.jpg';
+import invasionOfPain from '../narutoimgs/invasionofpain.webp';
+import fiveKageSummit from '../narutoimgs/fivekagesummit.avif';
+import fourthGreatNinjaWar from '../narutoimgs/fourthgreatninjawar.webp';
 
 
 const NarutoRating = () => {
   const [sortedRankings, setSortedRankings] = useState([
     { id: 'arc1', name: 'Land of Waves', image: landOfWavesImage },
     {id: 'arc2', name: 'Chunin Exams', image: chuninExamsImage },
-    { id: 'arc3', name: 'Konoha Crush', image: konohaCrushImage },
-    { id: 'arc4', name: 'Search for Tsunade', image: searchForTsunadeImage },
-    { id: 'arc5', name: 'Sasuke Retrieval', image: sasukeRetrievalImage },
+    { id: 'arc3', name: 'Search for Tsunade', image: searchForTsunadeImage },
+    { id: 'arc4', name: 'Sasuke Retrieval', image: sasukeRetrievalImage },
+    { id: 'arc5', name: 'Kazekage Rescue', image: kazekageRescue },
+    { id: 'arc6', name: 'Tenchi Bridge', image: tenchiBridge },
+    { id: 'arc7', name: 'Hidan and Kakuzu', image: hidanAndKakuzu },
+    { id: 'arc8', name: 'Itachi Pursuit', image: itachiPursuit },
+    { id: 'arc9', name: 'Tale of Jiraiya the Gallant', image: taleOfJiraiyaTheGallant },
+    { id: 'arc10', name: 'Fated Battle between brothers', image: fatedBattleBetweenBrothers },
+    { id: 'arc11', name: 'Invasion of Pain', image: invasionOfPain },
+    { id: 'arc12', name: 'Five Kage Summit', image: fiveKageSummit },
+    { id: 'arc13', name: 'Entire Fourth Great Ninja War', image: fourthGreatNinjaWar },
     // Add more arcs here...
   ]);
   const [submitting, setSubmitting] = useState(false);

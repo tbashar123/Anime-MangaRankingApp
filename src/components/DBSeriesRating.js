@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import '../css/DBZRating.css';
-import saiyanImage from '../dbzimgs/saiyansaga.jpg'; 
-import freizaImage from '../dbzimgs/freizasaga.jpg';
-import androidImage from '../dbzimgs/androidsaga.png';
-import buuImage from '../dbzimgs/buusaga.png';
+import '../css/DBSeriesRating.css';
+import sonGoku from '../dbseriesimgs/songoku.jpg'; 
+import redRibbonArmy from '../dbseriesimgs/redribbonarmy.webp'; 
+import kingPiccolo from '../dbseriesimgs/kingpiccolo.webp'; 
+import saiyanImage from '../dbseriesimgs/saiyansaga.jpg'; 
+import freizaImage from '../dbseriesimgs/freizasaga.jpg';
+import androidImage from '../dbseriesimgs/androidsaga.png';
+import buuImage from '../dbseriesimgs/buusaga.png';
 
 
-const DBZRating = () => {
+const DBSeriesRating = () => {
   const [sortedRankings, setSortedRankings] = useState([
-    { id: 'arc1', name: 'Saiyan', image: saiyanImage },
-    {id: 'arc2', name: 'Freiza', image: freizaImage },
-    { id: 'arc3', name: 'Android', image: androidImage },
-    { id: 'arc4', name: 'Buu', image: buuImage },
+    { id: 'arc1', name: 'Son Goku Saga', image: sonGoku },
+    { id: 'arc2', name: 'Red Ribbon Army Saga', image: redRibbonArmy },
+    { id: 'arc3', name: 'King Piccolo Saga', image: kingPiccolo },
+    { id: 'arc4', name: 'Saiyan Saga', image: saiyanImage },
+    {id: 'arc5', name: 'Freiza Saga', image: freizaImage },
+    { id: 'arc6', name: 'Android Saga', image: androidImage },
+    { id: 'arc7', name: 'Buu Saga', image: buuImage },
     // Add more arcs here...
   ]);
   const [submitting, setSubmitting] = useState(false);
@@ -102,9 +108,9 @@ const DBZRating = () => {
     <div>
       {!submitted ? (
         <>
-          <h2>DragonBallZ Arc Rankings</h2>
+          <h2>DragonBall Series Arc Rankings</h2>
           <p>
-            Drag and drop the arc names to rank them in your desired order. Click the "Submit Arc Rankings" button below to save
+            Drag and drop the saga names to rank them in your desired order. Click the "Submit Arc Rankings" button below to save
             your rankings.
           </p>
           <DragDropContext onDragEnd={handleDragEnd}>
@@ -152,4 +158,4 @@ const DBZRating = () => {
   );
 };
 
-export default DBZRating;
+export default DBSeriesRating;

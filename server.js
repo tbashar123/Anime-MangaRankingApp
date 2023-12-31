@@ -81,13 +81,13 @@ app.post('/api/arcs/bleach', async (req, res) => {
   }
 });
 
-app.post('/api/arcs/dbz', async (req, res) => {
+app.post('/api/arcs/dbseries', async (req, res) => {
   try {
     const { rankings } = req.body;
 
     rankings.forEach(async (arc, index) => {
       try {
-        const newArc = new Arc({ animeId: 'dbz', arcName: arc.name, rating: index + 1 });
+        const newArc = new Arc({ animeId: 'dbseries', arcName: arc.name, rating: index + 1 });
         await newArc.save();
       } catch (error) {
         console.error(error);

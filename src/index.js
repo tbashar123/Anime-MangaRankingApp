@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NarutoRating from './components/NarutoRating';
 import BleachRating from './components/BleachRating';
-import DBZRating from './components/DBZRating';
+import DBSeriesRating from './components/DBSeriesRating';
 import HxHRating from './components/HxHRating';
 import OnePieceRating from './components/OnePieceRating'; // Import OnePieceRating component
 import App from './App';
@@ -19,7 +19,7 @@ rootElement.render(
         <Route index element={<App />} />
         <Route path="naruto" element={<NarutoRating />} />
         <Route path="bleach" element={<BleachRating />} />
-        <Route path="dbz" element={<DBZRating />} />
+        <Route path="dbseries" element={<DBSeriesRating />} />
         <Route path="hxh" element={<HxHRating />} />
         <Route path="onepiece" element={<OnePieceRating />} /> {/* Add route for OnePiece Rating */}
       </Route>
