@@ -31,7 +31,7 @@ const DBSeriesArcRanking = () => {
   const submitArcRankings = async () => {
     try {
       setSubmitting(true);
-      const response = await axios.post('/api/arcs/naruto', {
+      const response = await api.post('/api/arcs/naruto', {
         rankings: sortedRankings,
       });
   

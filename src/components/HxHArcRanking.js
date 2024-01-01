@@ -34,7 +34,7 @@ const HxHArcRanking = () => {
   const submitArcRankings = async () => {
     try {
       setSubmitting(true);
-      const response = await axios.post('/api/arcs/hxh', {
+      const response = await api.post('/api/arcs/hxh', {
         rankings: sortedRankings,
       });
   

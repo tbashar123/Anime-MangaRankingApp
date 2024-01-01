@@ -36,7 +36,7 @@ const OnePieceArcRanking = () => {
   const submitArcRankings = async () => {
     try {
       setSubmitting(true);
-      const response = await axios.post('/api/arcs/onepiece', {
+      const response = await api.post('/api/arcs/onepiece', {
         rankings: sortedRankings,
       });
 

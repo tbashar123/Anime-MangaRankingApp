@@ -26,7 +26,7 @@ const BleachArcRanking = () => {
   const submitArcRankings = async () => {
     try {
       setSubmitting(true);
-      const response = await axios.post('/api/arcs/bleach', {
+      const response = await api.post('/api/arcs/bleach', {
         rankings: sortedRankings,
       });
   

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import '../css/NarutoArcRanking.css';
+import api from '../api';
 import landOfWavesImage from '../narutoimgs/landofwaves.jpg'; 
 import chuninExamsImage from '../narutoimgs/chuninexams.jpg';
 import searchForTsunadeImage from '../narutoimgs/search for tsunade.png';
@@ -15,7 +16,6 @@ import fatedBattleBetweenBrothers from '../narutoimgs/fatedbattlebetweenbrothers
 import invasionOfPain from '../narutoimgs/invasionofpain.webp';
 import fiveKageSummit from '../narutoimgs/fivekagesummit.avif';
 import fourthGreatNinjaWar from '../narutoimgs/fourthgreatninjawar.webp';
-import api from '../api';
 
 
 
@@ -43,7 +43,7 @@ const NarutoArcRanking = () => {
   const submitArcRankings = async () => {
     try {
       setSubmitting(true);
-      const response = await axios.post('/api/arcs/naruto', {
+      const response = await api.post('/api/arcs/naruto', {
         rankings: sortedRankings,
       });
   
