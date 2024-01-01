@@ -150,3 +150,8 @@ app.post('/api/arcs/onepiece', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+
+app.get('/', (_, res) => {
+  res.send('Hello, your server is up and running!');
+});
