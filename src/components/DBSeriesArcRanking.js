@@ -9,6 +9,8 @@ import saiyanImage from '../dbseriesimgs/saiyansaga.jpg';
 import freizaImage from '../dbseriesimgs/freizasaga.jpg';
 import androidImage from '../dbseriesimgs/androidsaga.png';
 import buuImage from '../dbseriesimgs/buusaga.png';
+import api from '../api';
+
 
 
 const DBSeriesArcRanking = () => {

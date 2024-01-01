@@ -15,6 +15,8 @@ import fatedBattleBetweenBrothers from '../narutoimgs/fatedbattlebetweenbrothers
 import invasionOfPain from '../narutoimgs/invasionofpain.webp';
 import fiveKageSummit from '../narutoimgs/fivekagesummit.avif';
 import fourthGreatNinjaWar from '../narutoimgs/fourthgreatninjawar.webp';
+import api from '../api';
+
 
 
 const NarutoArcRanking = () => {

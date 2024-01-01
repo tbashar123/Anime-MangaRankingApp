@@ -12,6 +12,8 @@ import fishManIsland from '../onepieceimgs/fishmanisland.webp';
 import dressRosa from '../onepieceimgs/dressrosa.webp';
 import wholeCakeIsland from '../onepieceimgs/wholecakeisland.webp';
 import wanoCountry from '../onepieceimgs/wanocountry.webp';
+import api from '../api';
+
 
 const OnePieceArcRanking = () => {
   const [sortedRankings, setSortedRankings] = useState([

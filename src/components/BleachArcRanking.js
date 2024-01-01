@@ -7,6 +7,8 @@ import soulSocietyImage from '../bleachimgs/soulsociety.jpg';
 import arrancarImage from '../bleachimgs/Arrancar.jpg';
 import fullBringImage from '../bleachimgs/fullbring.jpg';
 import thousandYearBloodWarImage from '../bleachimgs/thousandyearbloodwar.jpg';
+import api from '../api';
+
 
 const BleachArcRanking = () => {
   const [sortedRankings, setSortedRankings] = useState([

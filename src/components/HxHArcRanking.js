@@ -10,6 +10,8 @@ import greedIsland from '../hxhimgs/greedisland.jpg';
 import chimeraAnt from '../hxhimgs/chimeraant.jpg';
 import election from '../hxhimgs/13thelection.jpg';
 import darkContinentExpedition from '../hxhimgs/darkcontinentexpedition.webp';
+import api from '../api';
+
 
 
 
